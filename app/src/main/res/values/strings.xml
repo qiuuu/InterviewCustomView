@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">InterviewCustomView</string>
+    <string name="interview1">自定义控件</string>
+    <string name="interview2">加载图片</string>
+
+
+</resources>
