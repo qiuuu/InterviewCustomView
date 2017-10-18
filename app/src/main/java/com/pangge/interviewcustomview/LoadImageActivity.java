@@ -1,7 +1,10 @@
 package com.pangge.interviewcustomview;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -152,8 +155,6 @@ public class LoadImageActivity extends AppCompatActivity {
                 .build().create(ImageService.class);
 
         for (i = 0; i<imageList.size(); i++) {
-            Log.i("5-o--Sou", imageList.size()+"-----"+i);
-
 
             compositeDisposable.add(imageService.downloadImage(imageList.get(i))
 
@@ -185,12 +186,8 @@ public class LoadImageActivity extends AppCompatActivity {
 
     private boolean saveImageToLocal(ResponseBody responseBody){
       //  file.getAbsolutePath();
-        Log.i("5-----------???", "save image to local");
+        Log.i("saveImageToLocal", "save image to local");
         try {
-
-
-            //System.currentTimeMillis()
-
             saveImageNum++;
             File imageFile = new File(file, saveImageNum+".jpg");
             FileOutputStream out = new FileOutputStream(imageFile);
@@ -224,6 +221,16 @@ public class LoadImageActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+    public boolean isNetworkConnected(Context context){
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo != null){
+            return networkInfo.isAvailable();
+        }
+        return false;
+
     }
 
 
