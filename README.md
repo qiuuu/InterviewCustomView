@@ -5,14 +5,14 @@
 
 2. 将控件做成一个接口，只有想使用此功能的View，只需实现这个接口就好。
 
-    public interface CustomTextView {
+       public interface CustomTextView {
     
-    String getSelectedText();
+           String getSelectedText();
 
-    void onTextSelected();
-    void onTextUnselected();
+           void onTextSelected();
+           void onTextUnselected();
 
-    }    
+        }    
     
 3. ActionMode--版本不同，形式不同。对于低版本，menu.clear()并无用处。
 
