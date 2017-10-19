@@ -15,5 +15,6 @@
         }    
     
 3. ActionMode--版本不同，形式不同。对于低版本，menu.clear()并无用处。
+![image](https://github.com/qiuuu/InterviewCustomView/blob/master/app/c.gif)
 
 
